@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamauss <marvin@42quebec.com>              +#+  +:+       +#+        */
+/*   By: mamauss <mamauss@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:09:39 by mamauss           #+#    #+#             */
-/*   Updated: 2024/05/06 13:52:00 by mamauss          ###   ########.fr       */
+/*   Updated: 2024/05/06 14:58:14 by mamauss          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ size_t	ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		totalsize;
 	char	*answer;
@@ -50,15 +50,15 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	return (answer);
 }
 
-char	*ft_strchr(const char *str, int theChar)
+char	*ft_strchr(const char *haystack, int needle)
 {
-	char	*answer;
+	char	*string;
 
-	answer = (char *)str;
-	while (*answer != thechar && *answer != 0)
-		answer++;
-	if (*answer == thechar)
-		return (answer);
+	string = (char *)haystack;
+	while (*string != needle && *string != 0)
+		string++;
+	if (*string == needle)
+		return (string);
 	else
 		return (NULL);
 }
@@ -81,7 +81,7 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	char	*answer;
 
-	answer = malloc(sizeof(char) * size);
+	answer = malloc(count * size);
 	if (!answer)
 		return (NULL);
 	ft_bzero(answer, count * size);
