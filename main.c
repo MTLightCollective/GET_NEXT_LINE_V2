@@ -6,7 +6,7 @@
 /*   By: mamauss <mamauss@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 12:43:35 by mamauss           #+#    #+#             */
-/*   Updated: 2024/05/06 11:01:29 by mamauss          ###   ########.fr       */
+/*   Updated: 2024/05/06 16:55:25 by mamauss          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(void)
 	int		fd;
 	char	*str;
 
+	str = NULL;
 	fd = open("test.txt", O_RDONLY);
 	str = get_next_line(fd);
 	while (str != NULL)
