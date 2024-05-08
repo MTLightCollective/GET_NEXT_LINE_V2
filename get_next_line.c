@@ -6,7 +6,7 @@
 /*   By: mamauss <mamauss@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 10:19:27 by mamauss           #+#    #+#             */
-/*   Updated: 2024/05/06 17:00:47 by mamauss          ###   ########.fr       */
+/*   Updated: 2024/05/08 16:09:48 by mamauss          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_join_and_free(char *buffer, char *buf)
 	char	*temp;
 
 	temp = ft_strjoin(buffer, buf);
+	if (!temp)
+		return (NULL);
 	free(buffer);
 	return (temp);
 }
@@ -60,6 +62,8 @@ char	*ft_create_line(char *stash)
 	while (stash[i] && stash[i] != '\n')
 		i++;
 	line = ft_calloc(i + 2, sizeof(char));
+	if (!line)
+		return (NULL);
 	i = 0;
 	while (stash[i] && stash[i] != '\n')
 	{
@@ -75,7 +79,7 @@ char	*ft_new_stash(char *stash)
 {
 	int		i;
 	int		j;
-	char	*line;
+	char	*new_stash;
 
 	i = 0;
 	while (stash[i] && stash[i] != '\n')
@@ -85,13 +89,15 @@ char	*ft_new_stash(char *stash)
 		free(stash);
 		return (NULL);
 	}
-	line = ft_calloc((ft_strlen(stash) - i + 1), sizeof(char));
+	new_stash = ft_calloc((ft_strlen(stash) - i + 1), sizeof(char));
+	if (!new_stash)
+		return (NULL);
 	i++;
 	j = 0;
 	while (stash[i])
-		line[j++] = stash[i++];
+		new_stash[j++] = stash[i++];
 	free(stash);
-	return (line);
+	return (new_stash);
 }
 
 char	*get_next_line(int fd)

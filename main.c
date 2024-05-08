@@ -6,11 +6,13 @@
 /*   By: mamauss <mamauss@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 12:43:35 by mamauss           #+#    #+#             */
-/*   Updated: 2024/05/06 16:55:25 by mamauss          ###   ########.fr       */
+/*   Updated: 2024/05/08 16:06:57 by mamauss          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <fcntl.h>
+#include <stdio.h>
 
 int	main(void)
 {
